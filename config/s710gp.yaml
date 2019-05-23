@@ -1,0 +1,9 @@
+axis_linear: 1  # Left thumb stick vertical
+scale_linear: 0.1 #equivalent to 100mm/s
+scale_linear_turbo: 0.2
+
+axis_angular: 0  # Left thumb stick horizontal
+scale_angular: 0.69 #equivalent to 40deg/s
+
+enable_button: 1  # Left trigger button
+enable_turbo_button: 5  # Right trigger button

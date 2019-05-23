@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="labview_interface_programs" type="velocity_control_interface_node" name="Velocity_control_enabled"/>
+  <node pkg="labview_interface_programs" type="odometry_interface_node" name="Odometry_enabled"/>
+
+  <include file="$(find twist_mux)/launch/twist_mux.launch"/>
+</launch>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+<include file="$(find labview_interface_programs)/launch/launch_lidar_interface.launch"/>
+<include file="$(find labview_interface_programs)/launch/launch_odometry_velocitycontrol.launch"/>
+</launch>

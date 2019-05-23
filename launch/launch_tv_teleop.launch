@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<!--Run the joy node(interfaces with the logitech 710s gamepad)-->
+<!-- joy node -->
+ <node respawn="true" pkg="joy"
+       type="joy_node" name="tv_joy" >
+   <param name="dev" type="string" value="/dev/input/js0" />
+   <param name="deadzone" value="0.3" />
+   <param name="autorepeat_rate" value="20" />
+ </node>
+ <!--run teleop_twist_joy node(node which converts joy messages to twist message) -->
+ <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="ro_teleop_node">
+   <rosparam command="load" file="$(find labview_interface_programs)/config/s710gp.yaml" />
+ <!--change the topic name to joy cmd vel-->
+ <remap from="cmd_vel" to="joy_cmd_vel"/>
+ </node>
+
+
+
+</launch>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="labview_interface_programs" type="Lidar_interface_node" name="Lidar_Driver_Enabled">
+<remap from="laser_scan" to="scan_unfiltered"/>
+</node>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_laser_broadcaster" args="0.0054 0 0.19 0 0 0 1 base_link base_laser 100" />
+  <!--run the laser filter -->
+  <include file="$(find laser_filters)/launch/laser_filter.launch"/>
+
+  <rosparam file="$(find labview_interface_programs)/param/door_threshold.yaml" command="load"/>
+  <node pkg="labview_interface_programs" type="door_detector_node" name="door_detector_node" output="screen" launch-prefix="gnome-terminal --command"/>
+
+
+</launch>
